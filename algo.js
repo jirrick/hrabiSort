@@ -50,15 +50,20 @@ const algo = {
     }, 
     
     hrabiSort: function(arr, kArr){
+        // pouzit veskere sirky hrabicek
         for (kk = 0; kk < kArr.length; kk++){
             const k = kArr[kk];
-            for (i = k + 1; i <= arr.length; i++){
+            // aplikovat hrabicky na cele pole
+            for (i = k; i <= arr.length; i++){
                 let j = 0;
+                // porovnat v ramci hrabicek
                 while (true){
                     const l = i - j*k;
-                    if (l < k) //neni s cim porovnavat
-                        break;                    
-                    if (arr[l-k] > arr[l]) {
+                    // ukoncit, pokud jsme na zacatku vstupniho pole
+                    if (l - k < 0) 
+                        break;     
+                    // pokud je v poradi spatne, tak prohodit
+                    if (arr[l - k] > arr[l]) {
                         const aux = arr[l];
                         arr[l] = arr[l - k];
                         arr[l - k] = aux;
