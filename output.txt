@@ -1,10 +1,12 @@
 Sorting with: HrabiSort_K1
-Runtime: 89 ms
+Runtime: 85 ms
 Sorting with: HrabiSort_K2
-Runtime: 80 ms
+Runtime: 72 ms
 Sorting with: HrabiSort_K3
-Runtime: 165 ms
+Runtime: 161 ms
 Sorting with: QuickSort
-Runtime: 66 ms
+Runtime: 70 ms
+Sorting with: JavaScriptSort
+Runtime: 67 ms
 Sorting with: InsertSort
-Runtime: 2813 ms
+Runtime: 2781 ms

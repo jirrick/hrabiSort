@@ -148,6 +148,10 @@ const algo = {
         }
 
         return algo.quickSort(leftArr).concat(pivot, algo.quickSort(rightArr)); 
+    },
+
+    jsSort: function(arr){
+        return arr.sort(function(a, b){return a-b});
     }
 }
 
