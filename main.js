@@ -12,8 +12,8 @@ function bench(name, data, sortFunction, printResult){
         console.log(result);
 }
 
-bench("HrabiSort_V1", data, algo.hrabiSort1, false);
-bench("HrabiSort_V2", data, algo.hrabiSort2, false);
-bench("HrabiSort_V3", data, algo.hrabiSort3, false);
+bench("HrabiSort_K1", data, algo.hrabiSortK1, false);
+bench("HrabiSort_K2", data, algo.hrabiSortK2, false);
+bench("HrabiSort_K3", data, algo.hrabiSortK3, false);
 bench("QuickSort", data, algo.quickSort, false);
-//bench("InsertSort", data, algo.insertSort, false);
+bench("InsertSort", data, algo.insertSort, false);

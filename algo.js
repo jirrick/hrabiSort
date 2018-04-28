@@ -1,5 +1,6 @@
 const algo = {
-    hrabiSort1: function(arr){
+    hrabiSortK1: function(arr){
+        // Varianta K1: n/2, n/4, ...
         let k = [];
         let a = 2;
         while (true){
@@ -10,10 +11,11 @@ const algo = {
             } else 
                 break;
         }
-        return algo.hrabiSource(arr, k)
+        return algo.hrabiSort(arr, k)
     },   
     
-    hrabiSort2: function(arr){
+    hrabiSortK2: function(arr){
+        // Varianta K2: (3^a - 1) / 2, a je prirozene
         let k = [];
         let a = 1;
         while (true){
@@ -24,10 +26,11 @@ const algo = {
             } else 
                 break;
         }
-        return algo.hrabiSource(arr, k.reverse())
+        return algo.hrabiSort(arr, k.reverse())
     }, 
 
-    hrabiSort3: function(arr){
+    hrabiSortK3: function(arr){
+        // Varianta K3: (2^r)*(3^s), r a s jsou nezaporna cela cisla
         let k = [];
         //kdyz s=0, tak x=2^r, nejvetsi r je tedy druha odmocnina
         const rMax = Math.floor(Math.log2(arr.length)); 
@@ -43,10 +46,10 @@ const algo = {
             }
         }
         k = k.sort(function(a, b){return a-b})
-        return algo.hrabiSource(arr, k)
+        return algo.hrabiSort(arr, k)
     }, 
     
-    hrabiSource: function(arr, k){
+    hrabiSort: function(arr, k){
         return arr;
 
         // TODO
