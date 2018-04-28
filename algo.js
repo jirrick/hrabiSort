@@ -91,32 +91,7 @@ const algo = {
         return arr
     },
 
-    quickSlow: function(arr){
-        //tohle jsem vzal z netu a je to strasne pomaly
-        //rekurze jede az do konce (prilis velky overhead)
-        //spatna volba pivotu (prvni prvek je spatny, pokud je temer setrideno)
-
-        if(arr.length === 0){
-          return [];
-        }
-        
-        var leftArr = [];
-        var rightArr = [];
-        var pivot = arr[0];
-        
-        for(var i = 1; i < arr.length; i++){
-            if(arr[i] < pivot){
-                leftArr.push(arr[i]);
-            } else {
-                rightArr.push(arr[i]);  
-            }
-        }
-
-        return algo.quickSlow(leftArr).concat(pivot, algo.quickSlow(rightArr)); 
-    },
-
-    quickSort: function(arr){
-        //tohle jsem prepsal a funguje to lip :)
+    quickSortRecursive: function(arr){
         //rekurze konci na 32 prvcich, pak se pouzije insertSort
         //pivot se voli intelignetne
 
@@ -147,7 +122,41 @@ const algo = {
             }
         }
 
-        return algo.quickSort(leftArr).concat(pivot, algo.quickSort(rightArr)); 
+        return algo.quickSortRecursive(leftArr).concat(pivot, algo.quickSortRecursive(rightArr)); 
+    },
+
+    quickSortIterative: function(arr){
+        // http://www.stoimen.com/blog/2010/06/18/friday-algorithms-iterative-quicksort/
+        var stack = [arr];
+        var sorted = [];
+    
+        while (stack.length) {  
+            var temp = stack.pop(), tl = temp.length;
+    
+            if (tl == 1) {
+                sorted.push(temp[0]);
+                continue;
+            }
+            var pivot = temp[0];
+            var left = [], right = [];
+    
+            for (var i = 1; i < tl; i++) {
+                if (temp[i] < pivot) {
+                    left.push(temp[i]);
+                } else {
+                    right.push(temp[i]);
+                }
+            }
+    
+            left.push(pivot);
+    
+            if (right.length)
+                stack.push(right);
+            if (left.length)
+                stack.push(left);
+    
+            }
+        return sorted;
     },
 
     jsSort: function(arr){
