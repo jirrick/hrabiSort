@@ -45,14 +45,30 @@ const algo = {
                     k.push(x);
             }
         }
-        k = k.sort(function(a, b){return a-b})
+        k = k.sort(function(a, b){return b-a})
         return algo.hrabiSort(arr, k)
     }, 
     
-    hrabiSort: function(arr, k){
+    hrabiSort: function(arr, kArr){
+        for (kk = 0; kk < kArr.length; kk++){
+            const k = kArr[kk];
+            for (i = k + 1; i <= arr.length; i++){
+                let j = 0;
+                while (true){
+                    const l = i - j*k;
+                    if (l < k) //neni s cim porovnavat
+                        break;                    
+                    if (arr[l-k] > arr[l]) {
+                        const aux = arr[l];
+                        arr[l] = arr[l - k];
+                        arr[l - k] = aux;
+                    } else 
+                        break;
+                    j++;
+                }
+            }
+        }
         return arr;
-
-        // TODO
     },
 
     insertSort: function(arr){
