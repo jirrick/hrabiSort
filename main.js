@@ -3,11 +3,13 @@ const data = require('./data.json');
 
 function bench(name, data, sortFunction, printResult){
     console.log("Sorting with: " + name);
-    const cloned_data = data.slice(0);
     const start = new Date().getTime();
-    const result = sortFunction(cloned_data);
+    for (var i = 0; i < 10; i++){
+        const cloned_data = data.slice(0);
+        const result = sortFunction(cloned_data);
+    }
     const end = new Date().getTime();
-    console.log("Runtime: " + (end - start) + " ms");
+    console.log("AVG runtime: " + ((end - start) / 10) + " ms");
     if (printResult)
         console.log(result);
 }
