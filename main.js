@@ -21,4 +21,4 @@ bench("HrabiSort_K3", data, algo.hrabiSortK3, false);
 bench("QuickSortRecursive", data, algo.quickSortRecursive, false);
 bench("QuickSortIterative", data, algo.quickSortIterative, false);
 bench("JavaScriptSort", data, algo.jsSort, false);
-//bench("InsertSort", data, algo.insertSort, false);
+bench("InsertSort", data, algo.insertSort, false);
