@@ -4,9 +4,10 @@ const data = require('./data.json');
 function bench(name, data, sortFunction, printResult){
     console.log("Sorting with: " + name);
     const start = new Date().getTime();
+    let result;
     for (var i = 0; i < 10; i++){
         const cloned_data = data.slice(0);
-        const result = sortFunction(cloned_data);
+        result = sortFunction(cloned_data);
     }
     const end = new Date().getTime();
     console.log("AVG runtime: " + ((end - start) / 10) + " ms");
@@ -20,4 +21,4 @@ bench("HrabiSort_K3", data, algo.hrabiSortK3, false);
 bench("QuickSortRecursive", data, algo.quickSortRecursive, false);
 bench("QuickSortIterative", data, algo.quickSortIterative, false);
 bench("JavaScriptSort", data, algo.jsSort, false);
-bench("InsertSort", data, algo.insertSort, false);
+//bench("InsertSort", data, algo.insertSort, false);

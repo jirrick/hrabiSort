@@ -54,7 +54,7 @@ const algo = {
         for (kk = 0; kk < kArr.length; kk++){
             const k = kArr[kk];
             // aplikovat hrabicky na cele pole
-            for (i = k; i <= arr.length; i++){
+            for (i = k; i < arr.length; i++){
                 let j = 0;
                 // porovnat v ramci hrabicek
                 while (true){
